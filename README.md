@@ -32,6 +32,7 @@ The new python controller should perform the same checks and return data with th
         response.put("response", answer);
 
         return ResponseEntity.status(HttpStatus.OK).body(response.toString());
+}
 ```
 
 ### Sample Response
