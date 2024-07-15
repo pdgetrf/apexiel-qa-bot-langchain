@@ -22,6 +22,7 @@ The new python controller should perform the same checks and return data with th
         ...
         ...
         ...
+        String answer;
         try {
             answer = queryLLM(query, sourceInfo);
         } catch (Exception e) {
@@ -31,6 +32,15 @@ The new python controller should perform the same checks and return data with th
         response.put("response", answer);
 
         return ResponseEntity.status(HttpStatus.OK).body(response.toString());
+```
+
+### Sample Response
+```json
+{
+  "answer": "Group 1C (Stock AWD, Open 4) and Group 2C (Mod RWD) are racing on Course 2 in the afternoon session on Sunday.",
+  "reference": "##### Sunday\n- Session time\n    - Session 1, Morning: 9:45 - 11:45am\n    - Session 2, Midday: 12:15 - 2:15pm\n    - Session 3, Afternoon: 2:45 - 4:45pm\n- Courses\n    - Course 2:\n        - Group 1A (Stock FWD, Mod FWD)\n            - Session 1 (Morning): Work\n            - Session 2 (Midday): Rest\n            - Session 3 (Afternoon): Race\n        - Group 1B (Stock RWD, Prepared AWD)\n            - Session 1 (Morning): Race\n            - Session 2 (Midday): Work\n            - Session 3 (Afternoon): Rest\n        - Group 1C (Stock AWD, Open 4)\n            - Session 1 (Morning): Rest\n            - Session 2 (Midday): Race\n            - Session 3 (Afternoon): Work",
+  "categories": "time and schedule"
+}
 ```
 
 ### Curl to call the endpoint
