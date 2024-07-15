@@ -1,4 +1,6 @@
-### Endpoint:
+### Url Endpoint Definition
+
+The new python controller should perform the same checks and return data with the same response format. 
 
 ```java
     @GetMapping("/event/{id}/ai/query/chat")
@@ -20,6 +22,15 @@
         ...
         ...
         ...
+        try {
+            answer = queryLLM(query, sourceInfo);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("");
+        }
+
+        response.put("response", answer);
+
+        return ResponseEntity.status(HttpStatus.OK).body(response.toString());
 ```
 
 ### Curl to call the endpoint
