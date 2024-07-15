@@ -46,5 +46,13 @@ The new python controller should perform the same checks and return data with th
 ### Curl to call the endpoint
 
 ```bash
-curl "http://$IP_ADDRESS:$PORT/event/rallycross-fest-2024-xnHMrDlZDb/ai/query/chat?query=${QUERY_ENCODED}&stage=${STAGE_ENCODED}"
+QUERY="what time should spectaator arrive?"
+IP_ADDRESS=127.0.0.1
+PORT=8082
+
+QUERY_ENCODED=$(printf '%s' "$QUERY" | jq -sRr @uri)
+STAGE_ENCODED=$(printf '%s' "$STAGE" | jq -sRr @uri)
+
+# Make the GET request using curl
+curl "http://$IP_ADDRESS:$PORT/event/rallycross-fest-2024-xnHMrDlZDb/ai/query/chat?query=${QUERY_ENCODED}&stage=${STAGE_ENCODED}"```
 ```
