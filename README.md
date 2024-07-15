@@ -29,7 +29,7 @@ The new python controller should perform the same checks and return data with th
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("");
         }
 
-        response.put("response", answer);
+        response.put("response", answer);    // <--- see an example of this variable in the next section
 
         return ResponseEntity.status(HttpStatus.OK).body(response.toString());
 }
