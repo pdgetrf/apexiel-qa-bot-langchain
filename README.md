@@ -36,6 +36,8 @@ The new python controller should perform the same checks and return data with th
 ```
 
 ### Sample Response
+This json below is what's in the *answer* variable in the Java code above.
+
 ```json
 {
   "answer": "Group 1C (Stock AWD, Open 4) and Group 2C (Mod RWD) are racing on Course 2 in the afternoon session on Sunday.",
